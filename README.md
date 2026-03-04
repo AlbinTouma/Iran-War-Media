@@ -8,4 +8,4 @@ The goals of this project are:
 3. Sentiment analysis of articles to identify if an article supports the war, is factual and netural, or opposes the war.
 
 
-![alt text](https://www.npr.org/2026/03/01/nx-s1-5731528/satellite-images-iran-war-us-strikes-israel "Logo Title Text 1")
+![alt text]( https://npr.brightspotcdn.com/dims3/default/strip/false/crop/3328x2700+0+0/resize/1100/quality/50/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F08%2Fbc%2Febb8fe4640b992a0d468eeb105b1%2Fairbus-pneo-28feb2026-tehran-khamenei-1.jpg "Khamenei palace destroyed")
