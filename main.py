@@ -1,7 +1,14 @@
 from playwright.sync_api import sync_playwright
-from newspaper import Article
+from newspaper import Article as NewsArticle
 from rss import get_rss
-from structs import RSS, ScrapedArticle
+# from structs import RSS, ScrapedArticle
+import json
+from followthemoney import model
+import nltk
+import datetime
+
+nltk.download('punkt_tab')
+nltk.download('punkt')
 
 def give_consent(page):
     try:
@@ -11,14 +18,19 @@ def give_consent(page):
     except:
         pass
 
-def create_article(page) -> Article:
+def create_article(page) -> NewsArticle:
     try:
-        article = Article(page.url)
+        article = NewsArticle(page.url)
         article.download()
         article.parse()
         return article
     except Exception as e:
         return None
+
+def get_publisher(article):
+    meta = article.meta_data
+    publisher = meta.get('og', {}).get('site_name') or meta.get('publisher')
+    return publisher
 
 feed  = get_rss()
 if not feed:
@@ -29,6 +41,7 @@ with sync_playwright() as p:
     page = browser.new_page()
 
     for item in feed:
+
         print(item.link)
         page.goto(str(item.link))
         give_consent(page)
@@ -36,7 +49,26 @@ with sync_playwright() as p:
         if not article:
             continue
 
-        s = ScrapedArticle(metadata=item, article=article)
-        print(s.model_dump_json())
+        article.nlp()
 
+        publisher = get_publisher(article)
+
+        s = {
+                "collectionDate": datetime.datetime.utcnow(), 
+                "processed": False,
+                "title": article.title,
+                "author": article.authors,
+                "publishedAt":article.publish_date,
+                "publisher": publisher, 
+                "language": article.meta_lang,
+                "bodyText":article.text,
+                "rawhtml": article.html,
+                "sourceUrl":article.source_url,
+                "summary":article.summary,
+                "keywords": article.keywords,
+                "description": article.meta_description
+                }
+
+        
+        print(s)
     browser.close()
