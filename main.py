@@ -1,11 +1,10 @@
 from playwright.sync_api import sync_playwright
 from newspaper import Article as NewsArticle
 from rss import get_rss
-# from structs import RSS, ScrapedArticle
 import json
 from followthemoney import model
 import nltk
-import datetime
+from datetime import datetime, timezone
 
 nltk.download('punkt_tab')
 nltk.download('punkt')
@@ -54,21 +53,22 @@ with sync_playwright() as p:
         publisher = get_publisher(article)
 
         s = {
-                "collectionDate": datetime.datetime.utcnow(), 
+                "collectionDate": str(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")),
                 "processed": False,
                 "title": article.title,
                 "author": article.authors,
-                "publishedAt":article.publish_date,
+                "publishedAt": str(article.publish_date),
                 "publisher": publisher, 
                 "language": article.meta_lang,
-                "bodyText":article.text,
-                "rawhtml": article.html,
                 "sourceUrl":article.source_url,
                 "summary":article.summary,
                 "keywords": article.keywords,
-                "description": article.meta_description
+                "description": article.meta_description,
+                "bodyText":article.text,
+                "rawhtml": article.html,
+         
                 }
 
         
-        print(s)
+        print(json.dumps(s, indent=4))
     browser.close()

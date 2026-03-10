@@ -1,0 +1,5 @@
+https://github.com/plenaryapp/awesome-rss-feeds?tab=readme-ov-file
+BBC, https://feeds.bbci.co.uk/news/word/rss.xml
+Aljazeera, https://www.aljazeera.com/xml/rss/all.xml
+The Guardian, https://www.theguardian.com/world/rss
+
