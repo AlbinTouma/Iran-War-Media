@@ -5,6 +5,7 @@ import json
 from followthemoney import model
 import nltk
 from datetime import datetime, timezone
+from db import ArticlesStore 
 
 nltk.download('punkt_tab')
 nltk.download('punkt')
@@ -51,8 +52,7 @@ with sync_playwright() as p:
         article.nlp()
 
         publisher = get_publisher(article)
-
-        s = {
+        article_dict = {
                 "collectionDate": str(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")),
                 "processed": False,
                 "title": article.title,
@@ -65,10 +65,13 @@ with sync_playwright() as p:
                 "keywords": article.keywords,
                 "description": article.meta_description,
                 "bodyText":article.text,
-                "rawhtml": article.html,
+#                "rawhtml": article.html,
          
                 }
 
         
-        print(json.dumps(s, indent=4))
+        store = ArticlesStore()
+        store.insert_article(article_dict)
+
+        #print(json.dumps(s, indent=4))
     browser.close()
