@@ -73,5 +73,4 @@ with sync_playwright() as p:
         store = ArticlesStore()
         store.insert_article(article_dict)
 
-        #print(json.dumps(s, indent=4))
     browser.close()
