@@ -10,14 +10,19 @@ class SentimentAnalyzer():
     def process_articles(self):
         articles = self.db.fetch_articles()
         for article in articles:
-            sentiment_score = self.sentiment_analyzer(article['bodyText'], ["positive", "factual", "negative"])
-            result_dict = { "analysis.sentiment": {
-                    "tone": sentiment_score['labels'][0], 
-                    "score": sentiment_score['scores'][0] 
-                    }
-            }
-            print(result_dict)
-
+            if not article.get("processed", False):
+                sentiment_score = self.sentiment_analyzer(
+                        article['bodyText'], 
+                        ["positive", "factual", "negative"]
+                        )
+                result_dict = {
+                        "processed": True,
+                        "analysis.sentiment": {
+                        "tone": sentiment_score['labels'][0], 
+                        "score": sentiment_score['scores'][0] 
+                        }
+                }
+            print(f"Processing {article['_id']}: {result_dict}")
             self.db.upsert_article(article["_id"], result_dict)
 
 

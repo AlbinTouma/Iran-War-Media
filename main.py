@@ -65,8 +65,6 @@ with sync_playwright() as p:
                 "keywords": article.keywords,
                 "description": article.meta_description,
                 "bodyText":article.text,
-#                "rawhtml": article.html,
-         
                 }
 
         
