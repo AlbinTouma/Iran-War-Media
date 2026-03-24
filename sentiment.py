@@ -22,8 +22,13 @@ class SentimentAnalyzer():
                         "score": sentiment_score['scores'][0] 
                         }
                 }
-            print(f"Processing {article['_id']}: {result_dict}")
-            self.db.upsert_article(article["_id"], result_dict)
+
+                print(f"Processing {article['_id']}: {result_dict}")
+
+                self.db.upsert_article(article["_id"], result_dict)
 
 
-SentimentAnalyzer().process_articles()
+
+if __name__ == "__main__":
+    print("Running")
+    SentimentAnalyzer().process_articles()
