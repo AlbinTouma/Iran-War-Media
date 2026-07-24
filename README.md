@@ -1,7 +1,7 @@
 # Iran War Media Monitor
 [![Subscribe to newsletter](https://img.shields.io/badge/📧_Join_Now,_Subscribe_Today-blue?)](https://albin-touma.kit.com)
 
-**[Read the Full Deep Dive](https://albintouma.com/posts/Iran-War-Media)**
+**[Read the Full Deep Dive](https://albintouma.com/posts/media-monitoring-iran-war)**
 
 ![Khamenei palace destroyed sourced from npr]( https://npr.brightspotcdn.com/dims3/default/strip/false/crop/3328x2700+0+0/resize/1100/quality/50/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F08%2Fbc%2Febb8fe4640b992a0d468eeb105b1%2Fairbus-pneo-28feb2026-tehran-khamenei-1.jpg "Khamenei palace destroyed")
 
