@@ -16,7 +16,7 @@ You can use this repository to:
 
 ## Methodology
 
-**[You can read the full technical deep dive here](https://albintouma.com). In summary, Iran Media Monitor executes two workflows. 
+[You can read the full technical deep dive here](https://albintouma.com). In summary, Iran Media Monitor executes two workflows. 
 
 First workflow runs the scraper that collects meta data and news articles from RSS feeds. The feed is set to Google RSS but you can change feed in rss.py.
 
