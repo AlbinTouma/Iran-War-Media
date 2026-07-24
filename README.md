@@ -1,4 +1,7 @@
 # Iran War Media Monitor
+
+**[Read the full deep dive on my blog](https://albintouma.com)
+
 ![alt text]( https://npr.brightspotcdn.com/dims3/default/strip/false/crop/3328x2700+0+0/resize/1100/quality/50/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F08%2Fbc%2Febb8fe4640b992a0d468eeb105b1%2Fairbus-pneo-28feb2026-tehran-khamenei-1.jpg "Khamenei palace destroyed")
 
 ## Introduction 
@@ -11,9 +14,9 @@ You can use this repository to:
 2. Identify authors and news media outlets to keep track of who says what and when
 3. Sentiment analysis of articles to identify if an article supports the war, is factual and netural, or opposes the war.
 
-## Data collection and processing
+## Methodology
 
-There are two workflows. 
+**[You can read the full technical deep dive here](https://albintouma.com). In summary, Iran Media Monitor executes two workflows. 
 
 First workflow runs the scraper that collects meta data and news articles from RSS feeds. The feed is set to Google RSS but you can change feed in rss.py.
 
