@@ -1,5 +1,5 @@
 # Iran War Media Monitor
-[![Subscribe to newsletter](https://img.shields.io/Join_the_Dispatch-2563eb?style=flat&logo=maildotru)](https://albin-touma.kit.com)
+[![Subscribe to newsletter](https://img.shields.io/badge/📧_Join_Now,_Subscribe_Today-blue?)](https://albin-touma.kit.com)
 
 **[Read the full deep dive on my blog](https://albintouma.com/Iran-War-Media)**
 
