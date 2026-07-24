@@ -23,11 +23,36 @@ First workflow runs the scraper that collects meta data and news articles from R
 
 Second workflow performs sentiment analysis on collected articles and upserts articles.
 
-
 ![alt text](image.png)
 
 
 The project uses MongoDB to store articles. Use Docker to create an instance of MongoDB. 
+
+
+
+## Data
+
+The following data points are collected:
+
+```python
+        {
+                "collectionDate": str(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")),
+                "processed": False,
+                "title": article.title,
+                "author": article.authors,
+                "publishedAt": str(article.publish_date),
+                "publisher": publisher, 
+                "language": article.meta_lang,
+                "sourceUrl":article.source_url,
+                "summary":article.summary,
+                "keywords": article.keywords,
+                "description": article.meta_description,
+                "bodyText":article.text,
+                }
+
+
+```
+
 
 ## The scripts:
 
